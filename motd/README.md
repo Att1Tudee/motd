@@ -1,8 +1,8 @@
-You must add a default.js file into /config which contains info on your Discordbot Token, and mongoDB address+pw
+You must add a default.js file into /config which contains info on your Discordbot Token, and MongoDB address+pw
 ```
 const config = {
-  DISCORD_TOKEN: '*token*',
-  MONGO_DB: '*mongo access*'
+  DISCORD_TOKEN: 'Discordbot Token',
+  MONGO_DB: 'MongoDB address+pw'
 };
 
 module.exports = config;
