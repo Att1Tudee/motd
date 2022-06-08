@@ -6,7 +6,7 @@ currently wip
 
 
 
-You msut add a default.js file into /config which contains info on your Discordbot Token, and mongoDB address+pw
+You must add a default.js file into /config which contains info on your Discordbot Token, and mongoDB address+pw
 
 const config = {
   DISCORD_TOKEN: '*token*',
