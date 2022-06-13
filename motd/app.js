@@ -41,7 +41,19 @@ client.on('messageCreate', async (msg) => {
       };
       
   } else if (command === 'form') {
-    let y = await db.collection('motds').aggregate([{'$sample': {'size': 1 }}])
+     // Get the count of all users
+     let y = motd.count().exec(function (err, count) {
+    
+      // Get a random entry
+      let random = Math.floor(Math.random() * count)
+    
+      // Again query all users but only fetch one offset by our random #
+      motd.findOne().skip(random).exec(
+        function (err, result) {
+          // Tada! random user
+          console.log(result) 
+        })
+    })
     console.log('log',y)
     const gugu = new MessageEmbed()
       .setTitle (`${y.author}`)
