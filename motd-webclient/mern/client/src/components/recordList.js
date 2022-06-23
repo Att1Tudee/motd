@@ -19,6 +19,7 @@ const Record = (props) => (
   </tr>
 );
 
+
 export default function RecordList() {
   const [records, setRecords] = useState([]);
 
@@ -41,7 +42,7 @@ export default function RecordList() {
 
     return; 
   }, [records.length]);
-
+  // console.log(records[2])
   // This method will delete a record
   async function deleteRecord(id) {
     await fetch(`http://localhost:5000/${id}`, {
@@ -78,6 +79,7 @@ export default function RecordList() {
           </tr>
         </thead>
         <tbody>{recordList()}</tbody>
+        
       </table>
     </div>
   );

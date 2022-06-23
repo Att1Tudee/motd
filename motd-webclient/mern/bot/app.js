@@ -22,16 +22,20 @@ client.on('messageCreate', async (msg) => {
   
   if (command === 'deletelast') {
     msg.channel.bulkDelete(args[0]);
+
+    // Tässä on ojku 14 pivä hässäkkä se pitää muuttaa
   
   } else if (command === 'hold') {
-    let helparray =[]
-    let y = await db.collection('motds').find( { motd: { $all: [ "" ] } } )
-    if (y === null) {
-      console.log('Not found');
-      msg.channel.send('Not Found');
-    } else {
-    console.log(y)
-    }
+    
+    let y =  db.collection("motds")
+    .find({})
+    .toArray() 
+      console.log(y)
+  
+      
+     
+
+
   } else if (command === 'find') {
     let x = await db.collection('motds').findOne({ motd: `${args}` });
     if (x === null) {

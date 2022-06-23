@@ -21,7 +21,22 @@ recordRoutes.route("/record").get(function (req, res) {
     .toArray(function (err, result) {
       if (err) throw err;
       res.json(result);
+      console.log('serverside record.js ', result[2]) // Tämä postaa koko collectionin pituuden
     });
+    
+});
+// This trying ot be the random sample demonstration
+recordRoutes.route("/sample").get(function (req, res) {
+  let db_connect = dbo.getDb("Data");
+  db_connect
+    .collection("motds")
+    .aggregate([{ $sample: { size: 1 } }])
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+      console.log(result) // This should post the sample
+    });
+    
 });
 
 // This section will help you get a single record by id
@@ -43,6 +58,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
     author: req.body.author,
     motd: req.body.motd,
     level: req.body.level,
+    randid: req.body.randid,
   };
   db_connect.collection("motds").insertOne(myobj, function (err, res) {
     if (err) throw err;

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 
+const x = 1
+
 export default function Create() {
   const [form, setForm] = useState({
     author: "",
     motd: "",
     level: "",
+    randid: x,
   });
   const navigate = useNavigate();
 
@@ -19,6 +22,7 @@ export default function Create() {
   // This function will handle the submission.
   async function onSubmit(e) {
     e.preventDefault();
+    
 
     // When a post request is sent to the create url, we'll add a new record to the database.
     const newPerson = { ...form };
@@ -35,7 +39,7 @@ export default function Create() {
       return;
     });
 
-    setForm({ author: "", motd: "", level: "" });
+    setForm({ author: "", motd: "", level: "", randid: "" });
     navigate("/");
   }
 
