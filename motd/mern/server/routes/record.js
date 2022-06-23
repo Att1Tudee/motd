@@ -21,7 +21,7 @@ recordRoutes.route("/record").get(function (req, res) {
     .toArray(function (err, result) {
       if (err) throw err;
       res.json(result);
-      console.log('serverside record.js ', result[2]) // Tämä postaa koko collectionin pituuden
+      console.log('serverside record.js posting the 2nd value of array, if undefined theres no 2nd arrray yet', result[2]) // Tämä postaa koko collectionin pituuden lengthillä, nyt taulukon arvon 2
     });
     
 });
